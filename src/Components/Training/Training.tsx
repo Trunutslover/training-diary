@@ -1,19 +1,19 @@
 import React from 'react';
 import {actionInterface, ExerciseInterface} from "../../types";
 import Exercise from "../Exercise/Exercise";
-import {addSetAC} from "../../redux/trainingsReducer";
 
 interface Props {
     id: number,
     isDone: boolean,
     exercises: ExerciseInterface[],
     toggleIsDoneAC: (id: number) => actionInterface,
-    addSetAC: (trainingId: number, exerciseNumber: number) => actionInterface
+    addSetAC: (trainingId: number, exerciseNumber: number) => actionInterface,
+    removeSetAC: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface
 }
 
-const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC}: Props): React.ReactElement => {
+const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC}: Props): React.ReactElement => {
     const exercisesList = exercises.map(value => <Exercise key={value.number} id={id} number={value.number}
-                                                           name={value.name} sets={value.sets} addSet={addSetAC}/>);
+                                                           name={value.name} sets={value.sets} addSet={addSetAC} removeSet={removeSetAC}/>);
 
     return (
         <section>

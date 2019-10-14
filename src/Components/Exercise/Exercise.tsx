@@ -13,11 +13,12 @@ interface Props {
         reps: number,
         weight: number
     }[],
-    addSet: (trainingId: number, exerciseNumber: number) => actionInterface
+    addSet: (trainingId: number, exerciseNumber: number) => actionInterface,
+    removeSet: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface
 }
 
-const Exercise = ({id, number, name, sets, addSet}: Props): React.ReactElement => {
-    const setsList = sets.map((value, index) => <span key={index} className={cx({set: true})}>{value.reps}reps - {value.weight}kg</span>);
+const Exercise = ({id, number, name, sets, addSet, removeSet}: Props): React.ReactElement => {
+    const setsList = sets.map((value, index) => <span key={index} className={cx({set: true})}>{value.reps}reps - {value.weight}kg <button onClick={() => removeSet(id, number, index)}>-</button></span>);
 
     return (
         <div>
