@@ -73,6 +73,33 @@ const trainingsReducer = (state = initialState, action: actionInterface): Traini
                     }
                 });
 
+            case actionTypes.SET_REPS:
+                return state.map(value => {
+                    if(action.payload.trainingId === value.id){
+                        return {
+                            ...value,
+                            exercises: value.exercises.map(value => {
+                                if(action.payload.exerciseNumber === value.number) {
+                                    return {
+                                        ...value,
+                                        sets: value.sets.map(((value1, index) => {
+                                            if(action.payload.setNumber === index) {
+                                                return action.payload.isReps ? {reps: parseInt(action.payload.value), weight: value1.weight} : {reps: value1.reps, weight: parseInt(action.payload.value)}
+                                            } else {
+                                                return value1;
+                                            }
+                                        }))
+                                    }
+                                } else {
+                                    return value;
+                                }
+                            })
+                        }
+                    } else {
+                        return value;
+                    }
+                });
+
         default:
             return state;
     }
@@ -83,3 +110,4 @@ export default trainingsReducer;
 export const toggleIsDoneAC = (id: number): actionInterface => ({type: actionTypes.TOGGLE_IS_DONE, payload: id});
 export const addSetAC = (trainingId: number, exerciseNumber: number): actionInterface => ({type: actionTypes.ADD_SET, payload: {trainingId, exerciseNumber}});
 export const removeSetAC = (trainingId: number, exerciseNumber: number, setNumber: number) => ({type: actionTypes.REMOVE_SET, payload: {trainingId, exerciseNumber, setNumber}});
+export const setRepsAC = (trainingId: number, exerciseNumber: number, setNumber: number, isReps: boolean, value: string) => ({type: actionTypes.SET_REPS, payload: {trainingId, exerciseNumber, setNumber, isReps, value}});

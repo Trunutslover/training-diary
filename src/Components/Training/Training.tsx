@@ -8,12 +8,13 @@ interface Props {
     exercises: ExerciseInterface[],
     toggleIsDoneAC: (id: number) => actionInterface,
     addSetAC: (trainingId: number, exerciseNumber: number) => actionInterface,
-    removeSetAC: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface
+    removeSetAC: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface,
+    setRepsAC: (trainingId: number, exerciseNumber: number, setNumber: number, isReps: boolean, value: string) => actionInterface
 }
 
-const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC}: Props): React.ReactElement => {
+const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC, setRepsAC}: Props): React.ReactElement => {
     const exercisesList = exercises.map(value => <Exercise key={value.number} id={id} number={value.number}
-                                                           name={value.name} sets={value.sets} addSet={addSetAC} removeSet={removeSetAC}/>);
+                                                           name={value.name} sets={value.sets} addSet={addSetAC} removeSet={removeSetAC} setReps={setRepsAC}/>);
 
     return (
         <section>
