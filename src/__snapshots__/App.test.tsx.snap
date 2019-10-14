@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot App should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <App>
+    <div
+      className="App"
+    >
+      Training diary
+      <Connect(Trainings)>
+        <Trainings
+          toggleIsDoneAC={[Function]}
+          trainings={
+            Array [
+              Object {
+                "exercises": Array [
+                  Object {
+                    "name": "squats",
+                    "number": 1,
+                    "sets": Array [
+                      10,
+                      12,
+                      12,
+                      10,
+                      8,
+                    ],
+                  },
+                ],
+                "id": 1,
+                "isDone": false,
+              },
+            ]
+          }
+        >
+          <div>
+            <Training
+              exercises={
+                Array [
+                  Object {
+                    "name": "squats",
+                    "number": 1,
+                    "sets": Array [
+                      10,
+                      12,
+                      12,
+                      10,
+                      8,
+                    ],
+                  },
+                ]
+              }
+              id={1}
+              isDone={false}
+              key="1"
+              toggleIsDoneAC={[Function]}
+            >
+              <section>
+                <p>
+                  Training number 
+                  1
+                </p>
+                <p>
+                  Training is done: 
+                  no
+                </p>
+                <p>
+                  Exercises: 
+                  <span
+                    key="1"
+                  >
+                    number - 
+                    1
+                     name - 
+                    squats
+                     sets - 
+                    <span
+                      key="0"
+                    >
+                      10
+                       
+                    </span>
+                    <span
+                      key="1"
+                    >
+                      12
+                       
+                    </span>
+                    <span
+                      key="2"
+                    >
+                      12
+                       
+                    </span>
+                    <span
+                      key="3"
+                    >
+                      10
+                       
+                    </span>
+                    <span
+                      key="4"
+                    >
+                      8
+                       
+                    </span>
+                  </span>
+                </p>
+                <button
+                  onClick={[Function]}
+                >
+                  Training is done
+                </button>
+              </section>
+            </Training>
+          </div>
+        </Trainings>
+      </Connect(Trainings)>
+    </div>
+  </App>
+</Provider>
+`;

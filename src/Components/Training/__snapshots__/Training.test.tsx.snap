@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Training snapshot Training should render correctly 1`] = `
+<section>
+  <p>
+    Training number 
+    1
+  </p>
+  <p>
+    Training is done: 
+    no
+  </p>
+  <p>
+    Exercises: 
+    <span
+      key="1"
+    >
+      number - 
+      1
+       name - 
+      squats
+       sets - 
+      <span
+        key="0"
+      >
+        10
+         
+      </span>
+      <span
+        key="1"
+      >
+        12
+         
+      </span>
+      <span
+        key="2"
+      >
+        12
+         
+      </span>
+      <span
+        key="3"
+      >
+        10
+         
+      </span>
+      <span
+        key="4"
+      >
+        8
+         
+      </span>
+    </span>
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Training is done
+  </button>
+</section>
+`;
