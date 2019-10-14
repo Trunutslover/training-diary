@@ -1,5 +1,6 @@
 export enum actionTypes {
-    TOGGLE_IS_DONE = 'TOGGLE_IS_DONE'
+    TOGGLE_IS_DONE = 'TOGGLE_IS_DONE',
+    ADD_SET = 'ADD_SET'
 }
 
 export interface actionInterface {
@@ -10,7 +11,10 @@ export interface actionInterface {
 export interface ExerciseInterface {
     number: number,
     name: string,
-    sets: number[]
+    sets: {
+        reps: number,
+        weight: number
+    }[]
 }
 
 export interface TrainingInterface {
