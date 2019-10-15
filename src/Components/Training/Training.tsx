@@ -36,13 +36,13 @@ const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC,
 
     return (
         <section className={cx({Training: true, done: isDone})}>
-            <h3>Training number {id}</h3>
-            <h3>Training is done: {isDone ? `yes` : `no`}</h3>
-            <h3>Exercises:</h3>
+            <h3 className={cx({title: true})}>Training number {id}</h3>
+            <h3 className={cx({title: true})}>Training is done: {isDone ? `yes` : `no`}</h3>
+            <h3 className={cx({title: true})}>Exercises:</h3>
             {exercisesList}
-            {isDone ? null : <div><button onClick={() => addExerciseAC(id)}>Add exercise</button></div>}
-            {isDone ? <button onClick={() => toggleIsDoneAC(id)}>Training is not done</button> :
-                <button onClick={() => toggleIsDoneAC(id)}>Training is done</button>}
+            {isDone ? null : <div><button className={cx({buttonDone: true})} onClick={() => addExerciseAC(id)}>Add exercise</button></div>}
+            {isDone ? <button className={cx({buttonDone: true})} onClick={() => toggleIsDoneAC(id)}>Training is not done</button> :
+                <button className={cx({button: true})} onClick={() => toggleIsDoneAC(id)}>Training is done</button>}
         </section>
     )
 };

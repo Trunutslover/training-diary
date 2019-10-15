@@ -1,3 +1,5 @@
+@import "../../../constants";
+
 .EditableSpan {
 
 }
@@ -5,7 +7,7 @@
 .span {
   padding: 0 5px;
 
-  background-color: lavender;
+  background-color: $color-secondary-b-3;
 }
 
 .input {

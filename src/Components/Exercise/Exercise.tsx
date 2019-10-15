@@ -37,21 +37,21 @@ const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps,
         isReps={false}
         value={value.weight.toString()}
         setValue={setReps}
-    /> : <span>{value.weight}</span>}kg {editable ? <button
+    /> : <span>{value.weight}</span>}kg {editable ? <button className={cx({removeButton: true})}
         onClick={() => removeSet(id, number, index)}>-</button> : null}</span>);
 
     return (
-        <div>
-            <h4>number - {number} name - {editable ? <EditableSpan
+        <div className={cx({Exercise: true})}>
+            <h4 className={cx({title: true})}>number - {number} name - {editable ? <EditableSpan
                 trainingId={id}
                 exerciseNumber={number}
                 value={name}
                 setValue={setExerciseName}
             /> : <span>{name}</span>}</h4>
-            <div><b>sets:</b> {setsList}
-                {editable ? <button onClick={() => addSet(id, number)}>+</button> : null}
-            </div>
-            {editable ? <button onClick={() => removeExercise(id, number)}>Remove exercise</button> : null}
+            <p className={cx({sets: true})}><b>sets:</b> {setsList}
+                {editable ? <button className={cx({addButton: true})} onClick={() => addSet(id, number)}>+</button> : null}
+            </p>
+            {editable ? <button className={cx({removeButton: true})} onClick={() => removeExercise(id, number)}>Remove exercise</button> : null}
         </div>
     )
 };

@@ -1,0 +1,56 @@
+/* Таблицы стилей Sass */
+/* Адрес цветовой схемы: https://colorscheme.ru/#1H42HsOsOFfFf */
+
+
+/* HEX коды */
+
+$color-primary-0: #ffec00;	/* Основной Цвет */
+$color-primary-1: #807b40;
+$color-primary-2: #4d4700;
+$color-primary-3: #fff680;
+$color-primary-4: #fffde6;
+
+$color-secondary-a-0: #00ff6f;	/* Вторичный Цвет A */
+$color-secondary-a-1: #40805b;
+$color-secondary-a-2: #004d21;
+$color-secondary-a-3: #80ffb7;
+$color-secondary-a-4: #e6fff1;
+
+$color-secondary-b-0: #ff3500;	/* Вторичный Цвет B */
+$color-secondary-b-1: #804d40;
+$color-secondary-b-2: #4d1000;
+$color-secondary-b-3: #ff9a80;
+$color-secondary-b-4: #ffebe6;
+
+$color-complement-0: #7700ff;	/* Дополнительный Цвет */
+$color-complement-1: #5e4080;
+$color-complement-2: #24004d;
+$color-complement-3: #bb80ff;
+$color-complement-4: #f1e6ff;
+
+
+/* RGBA коды */
+
+$color-primary-0: rgba(255, 236,   0, 1);	/* Основной Цвет */
+$color-primary-1: rgba(128, 123,  64, 1);
+$color-primary-2: rgba( 77,  71,   0, 1);
+$color-primary-3: rgba(255, 246, 128, 1);
+$color-primary-4: rgba(255, 253, 230, 1);
+
+$color-secondary-a-0: rgba(  0, 255, 111, 1);	/* Вторичный Цвет A */
+$color-secondary-a-1: rgba( 64, 128,  91, 1);
+$color-secondary-a-2: rgba(  0,  77,  33, 1);
+$color-secondary-a-3: rgba(128, 255, 183, 1);
+$color-secondary-a-4: rgba(230, 255, 241, 1);
+
+$color-secondary-b-0: rgba(255,  53,   0, 1);	/* Вторичный Цвет B */
+$color-secondary-b-1: rgba(128,  77,  64, 1);
+$color-secondary-b-2: rgba( 77,  16,   0, 1);
+$color-secondary-b-3: rgba(255, 154, 128, 1);
+$color-secondary-b-4: rgba(255, 235, 230, 1);
+
+$color-complement-0: rgba(119,   0, 255, 1);	/* Дополнительный Цвет */
+$color-complement-1: rgba( 94,  64, 128, 1);
+$color-complement-2: rgba( 36,   0,  77, 1);
+$color-complement-3: rgba(187, 128, 255, 1);
+$color-complement-4: rgba(241, 230, 255, 1);

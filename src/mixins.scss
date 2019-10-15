@@ -1,0 +1,39 @@
+@import "constants";
+
+@mixin greenButton {
+  padding: 5px 10px;
+  box-sizing: border-box;
+
+  color: $color-secondary-a-2;
+  border: 1px solid $color-secondary-a-2;
+  background-color: $color-secondary-a-4;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-secondary-a-3;
+  }
+
+  &:focus {
+    background-color: $color-secondary-a-3;
+  }
+}
+
+@mixin redButton {
+  padding: 5px 10px;
+  box-sizing: border-box;
+
+  color: $color-secondary-b-2;
+  border: 1px solid $color-secondary-b-2;
+  background-color: $color-secondary-b-4;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-secondary-b-3;
+  }
+
+  &:focus {
+    background-color: $color-secondary-b-3;
+  }
+}

@@ -1,3 +1,40 @@
+@import "../../constants";
+@import "../../mixins";
+
+.Exercise {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  border: 1px solid $color-secondary-b-3;
+}
+
 .set {
-  margin-right: 10px;
+  margin-right: 20px;
+  padding: 5px;
+  box-sizing: border-box;
+
+  border: 1px dashed $color-secondary-b-3;
+}
+
+.removeButton {
+  @include redButton;
+
+  align-self: flex-end;
+}
+
+.addButton {
+  @include greenButton;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.sets {
+  margin: 0;
 }

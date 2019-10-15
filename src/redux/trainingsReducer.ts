@@ -155,7 +155,7 @@ const trainingsReducer = (state = initialState, action: actionInterface): Traini
                 if (action.payload.trainingId === value.id) {
                     return {
                         ...value,
-                        exercises: value.exercises.filter(value1 => value1.number !== action.payload.exerciseNumber)
+                        exercises: value.exercises.filter(value1 => value1.number !== action.payload.exerciseNumber).map(((value1, index) => ({...value1, number: index + 1})))
                     }
                 } else {
                     return value;
