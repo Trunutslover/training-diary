@@ -13,11 +13,13 @@ interface Props {
     toggleIsDoneAC: (id: number) => actionInterface,
     addSetAC: (trainingId: number, exerciseNumber: number) => actionInterface,
     removeSetAC: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface,
-    setRepsAC: (trainingId: number, exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface
-    setExerciseNameAC: (trainingId: number, exerciseNumber: number, value: string) => actionInterface
+    setRepsAC: (trainingId: number, exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface,
+    setExerciseNameAC: (trainingId: number, exerciseNumber: number, value: string) => actionInterface,
+    addExerciseAC: (trainingId: number) => actionInterface,
+    removeExerciseAC: (trainingId: number, exerciseNumber: number) => actionInterface
 }
 
-const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC, setRepsAC, setExerciseNameAC}: Props): React.ReactElement => {
+const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC, setRepsAC, setExerciseNameAC, addExerciseAC, removeExerciseAC}: Props): React.ReactElement => {
     const exercisesList = exercises.map(value => <Exercise
         key={value.number}
         id={id}
@@ -29,6 +31,7 @@ const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC,
         removeSet={removeSetAC}
         setReps={setRepsAC}
         setExerciseName={setExerciseNameAC}
+        removeExercise={removeExerciseAC}
     />);
 
     return (
@@ -37,6 +40,7 @@ const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC,
             <h3>Training is done: {isDone ? `yes` : `no`}</h3>
             <h3>Exercises:</h3>
             {exercisesList}
+            {isDone ? null : <div><button onClick={() => addExerciseAC(id)}>Add exercise</button></div>}
             {isDone ? <button onClick={() => toggleIsDoneAC(id)}>Training is not done</button> :
                 <button onClick={() => toggleIsDoneAC(id)}>Training is done</button>}
         </section>

@@ -3,7 +3,6 @@ import classes from './Exercise.module.scss';
 import cn from 'classnames/bind';
 import {actionInterface} from "../../types";
 import EditableSpan from "../common/EditableSpan/EditableSpan";
-import {setExerciseNameAC} from "../../redux/trainingsReducer";
 
 const cx = cn.bind(classes);
 
@@ -19,10 +18,11 @@ interface Props {
     addSet: (trainingId: number, exerciseNumber: number) => actionInterface,
     removeSet: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface,
     setReps: (trainingId: number, exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface
-    setExerciseName: (trainingId: number, exerciseNumber: number, value: string) => actionInterface
+    setExerciseName: (trainingId: number, exerciseNumber: number, value: string) => actionInterface,
+    removeExercise: (trainingId: number, exerciseNumber: number) => actionInterface
 }
 
-const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps, setExerciseName}: Props): React.ReactElement => {
+const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps, setExerciseName, removeExercise}: Props): React.ReactElement => {
     const setsList = sets.map((value, index) => <span key={index} className={cx({set: true})}>{editable ? <EditableSpan
         trainingId={id}
         exerciseNumber={number}
@@ -51,6 +51,7 @@ const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps,
             <div><b>sets:</b> {setsList}
                 {editable ? <button onClick={() => addSet(id, number)}>+</button> : null}
             </div>
+            {editable ? <button onClick={() => removeExercise(id, number)}>Remove exercise</button> : null}
         </div>
     )
 };

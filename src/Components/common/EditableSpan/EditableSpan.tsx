@@ -24,7 +24,7 @@ const EditableSpan = ({trainingId, exerciseNumber, value, setValue, setNumber, i
     };
 
     if(editMode) {
-        return <input className={cx({input: true, number: setNumber})} type={setNumber ? `number` : `text`} value={inputValue} autoFocus={true} onChange={(e) => setInputValue(e.target.value)} onBlur={() => onBlurHandler()}/>
+        return <input className={cx({input: true, number: setNumber !== undefined})} type={setNumber !== undefined ? `number` : `text`} value={inputValue} autoFocus={true} onChange={(e) => setInputValue(e.target.value)} onBlur={() => onBlurHandler()}/>
     } else {
         return (
             <span className={cx({span: true})} onClick={() => setEditMode(true)}>{value}</span>
