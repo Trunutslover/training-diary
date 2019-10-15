@@ -1,0 +1,21 @@
+@import "../../constants";
+@import "../../mixins";
+
+.Header {
+  min-height: 60px;
+
+  background-color: $color-primary-0;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.link {
+
+}
+
+.linkActive {
+
+}
