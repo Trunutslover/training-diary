@@ -1,29 +1,33 @@
 import React, {useState} from 'react';
 import {actionInterface} from "../../../types";
+import classes from './EditableSpan.module.scss';
+import cn from 'classnames/bind';
+
+const cx = cn.bind(classes);
 
 interface Props {
     trainingId: number,
     exerciseNumber: number,
-    setNumber: number,
-    isReps: boolean,
+    setNumber?: number,
+    isReps?: boolean,
     value: string,
-    setValue: (trainingId: number, exerciseNumber: number, setNumber: number, isReps: boolean, value: string) => actionInterface
+    setValue: (trainingId: number, exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface
 }
 
-const EditableSpan = ({trainingId, exerciseNumber, setNumber, isReps, value, setValue}: Props): React.ReactElement => {
+const EditableSpan = ({trainingId, exerciseNumber, value, setValue, setNumber, isReps}: Props): React.ReactElement => {
     const [editMode, setEditMode] = useState(false);
     const [inputValue, setInputValue] = useState(value);
 
     const onBlurHandler = () => {
         setEditMode(false);
-        setValue(trainingId, exerciseNumber, setNumber, isReps, inputValue);
+        setValue(trainingId, exerciseNumber, inputValue, setNumber, isReps);
     };
 
     if(editMode) {
-        return <input type={`number`} value={inputValue} autoFocus={true} onChange={(e) => setInputValue(e.target.value)} onBlur={() => onBlurHandler()}/>
+        return <input className={cx({input: true, number: setNumber})} type={setNumber ? `number` : `text`} value={inputValue} autoFocus={true} onChange={(e) => setInputValue(e.target.value)} onBlur={() => onBlurHandler()}/>
     } else {
         return (
-            <span onClick={() => setEditMode(true)}>{value}</span>
+            <span className={cx({span: true})} onClick={() => setEditMode(true)}>{value}</span>
         )
     }
 };

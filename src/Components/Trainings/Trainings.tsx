@@ -1,5 +1,5 @@
 import React from 'react';
-import {addSetAC, removeSetAC, setRepsAC, toggleIsDoneAC} from "../../redux/trainingsReducer";
+import {addSetAC, removeSetAC, setExerciseNameAC, setRepsAC, toggleIsDoneAC} from "../../redux/trainingsReducer";
 import Training from "../Training/Training";
 import {compose} from "redux";
 import {connect} from "react-redux";
@@ -13,6 +13,7 @@ const Trainings = (props: any): React.ReactElement => {
                                                                                         addSetAC={props.addSetAC}
                                                                                         removeSetAC={props.removeSetAC}
                                                                                         setRepsAC={props.setRepsAC}
+                                                                                        setExerciseNameAC={props.setExerciseNameAC}
     />);
 
     return (
@@ -32,7 +33,8 @@ const mapDispatchToProps = {
     toggleIsDoneAC,
     addSetAC,
     removeSetAC,
-    setRepsAC
+    setRepsAC,
+    setExerciseNameAC
 };
 
 export default compose(

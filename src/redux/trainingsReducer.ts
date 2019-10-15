@@ -16,25 +16,26 @@ const initialState: TrainingInterface[] = [
 
 const trainingsReducer = (state = initialState, action: actionInterface): TrainingInterface[] => {
     switch (action.type) {
-        case actionTypes.TOGGLE_IS_DONE:
+        case actionTypes.TOGGLE_IS_DONE: {
             return state.map((value => {
-                    if(action.payload === value.id) {
-                        return {
-                            ...value,
-                            isDone: !value.isDone
-                        }
-                    } else {
-                        return value;
+                if (action.payload === value.id) {
+                    return {
+                        ...value,
+                        isDone: !value.isDone
                     }
-                }));
+                } else {
+                    return value;
+                }
+            }));
+        }
 
-            case actionTypes.ADD_SET:
+            case actionTypes.ADD_SET: {
                 return state.map(value => {
-                    if(action.payload.trainingId === value.id){
+                    if (action.payload.trainingId === value.id) {
                         return {
                             ...value,
                             exercises: value.exercises.map(value => {
-                                if(action.payload.exerciseNumber === value.number) {
+                                if (action.payload.exerciseNumber === value.number) {
                                     return {
                                         ...value,
                                         sets: [
@@ -51,14 +52,15 @@ const trainingsReducer = (state = initialState, action: actionInterface): Traini
                         return value;
                     }
                 });
+            }
 
-            case actionTypes.REMOVE_SET:
+            case actionTypes.REMOVE_SET: {
                 return state.map(value => {
-                    if(action.payload.trainingId === value.id){
+                    if (action.payload.trainingId === value.id) {
                         return {
                             ...value,
                             exercises: value.exercises.map(value => {
-                                if(action.payload.exerciseNumber === value.number) {
+                                if (action.payload.exerciseNumber === value.number) {
                                     return {
                                         ...value,
                                         sets: value.sets.filter((value, index) => index !== action.payload.setNumber)
@@ -72,19 +74,23 @@ const trainingsReducer = (state = initialState, action: actionInterface): Traini
                         return value;
                     }
                 });
+            }
 
-            case actionTypes.SET_REPS:
+            case actionTypes.SET_REPS: {
                 return state.map(value => {
-                    if(action.payload.trainingId === value.id){
+                    if (action.payload.trainingId === value.id) {
                         return {
                             ...value,
                             exercises: value.exercises.map(value => {
-                                if(action.payload.exerciseNumber === value.number) {
+                                if (action.payload.exerciseNumber === value.number) {
                                     return {
                                         ...value,
                                         sets: value.sets.map(((value1, index) => {
-                                            if(action.payload.setNumber === index) {
-                                                return action.payload.isReps ? {reps: parseInt(action.payload.value), weight: value1.weight} : {reps: value1.reps, weight: parseInt(action.payload.value)}
+                                            if (action.payload.setNumber === index) {
+                                                return action.payload.isReps ? {
+                                                    reps: parseInt(action.payload.value),
+                                                    weight: value1.weight
+                                                } : {reps: value1.reps, weight: parseInt(action.payload.value)}
                                             } else {
                                                 return value1;
                                             }
@@ -99,6 +105,29 @@ const trainingsReducer = (state = initialState, action: actionInterface): Traini
                         return value;
                     }
                 });
+            }
+
+        case actionTypes.SET_EXERCISE_NAME: {
+            return state.map(value => {
+                if (action.payload.trainingId === value.id) {
+                    return {
+                        ...value,
+                        exercises: value.exercises.map(value => {
+                            if (action.payload.exerciseNumber === value.number) {
+                                return {
+                                    ...value,
+                                    name: action.payload.value
+                                }
+                            } else {
+                                return value;
+                            }
+                        })
+                    }
+                } else {
+                    return value;
+                }
+            });
+        }
 
         default:
             return state;
@@ -110,4 +139,5 @@ export default trainingsReducer;
 export const toggleIsDoneAC = (id: number): actionInterface => ({type: actionTypes.TOGGLE_IS_DONE, payload: id});
 export const addSetAC = (trainingId: number, exerciseNumber: number): actionInterface => ({type: actionTypes.ADD_SET, payload: {trainingId, exerciseNumber}});
 export const removeSetAC = (trainingId: number, exerciseNumber: number, setNumber: number) => ({type: actionTypes.REMOVE_SET, payload: {trainingId, exerciseNumber, setNumber}});
-export const setRepsAC = (trainingId: number, exerciseNumber: number, setNumber: number, isReps: boolean, value: string) => ({type: actionTypes.SET_REPS, payload: {trainingId, exerciseNumber, setNumber, isReps, value}});
+export const setRepsAC = (trainingId: number, exerciseNumber: number, setNumber: number, value: string, isReps?: boolean) => ({type: actionTypes.SET_REPS, payload: {trainingId, exerciseNumber, setNumber, isReps, value}});
+export const setExerciseNameAC = (trainingId: number, exerciseNumber: number, value: string) => ({type: actionTypes.SET_EXERCISE_NAME, payload: {trainingId, exerciseNumber, value}});

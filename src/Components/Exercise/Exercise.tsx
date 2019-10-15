@@ -3,6 +3,7 @@ import classes from './Exercise.module.scss';
 import cn from 'classnames/bind';
 import {actionInterface} from "../../types";
 import EditableSpan from "../common/EditableSpan/EditableSpan";
+import {setExerciseNameAC} from "../../redux/trainingsReducer";
 
 const cx = cn.bind(classes);
 
@@ -10,38 +11,45 @@ interface Props {
     id: number,
     number: number,
     name: string,
+    editable: boolean,
     sets: {
         reps: number,
         weight: number
     }[],
     addSet: (trainingId: number, exerciseNumber: number) => actionInterface,
     removeSet: (trainingId: number, exerciseNumber: number, setNumber: number) => actionInterface,
-    setReps: (trainingId: number, exerciseNumber: number, setNumber: number, isReps: boolean, value: string) => actionInterface
+    setReps: (trainingId: number, exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface
+    setExerciseName: (trainingId: number, exerciseNumber: number, value: string) => actionInterface
 }
 
-const Exercise = ({id, number, name, sets, addSet, removeSet, setReps}: Props): React.ReactElement => {
-    const setsList = sets.map((value, index) => <span key={index} className={cx({set: true})}><EditableSpan
+const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps, setExerciseName}: Props): React.ReactElement => {
+    const setsList = sets.map((value, index) => <span key={index} className={cx({set: true})}>{editable ? <EditableSpan
         trainingId={id}
         exerciseNumber={number}
         setNumber={index}
         isReps={true}
         value={value.reps.toString()}
         setValue={setReps}
-    />reps - <EditableSpan
+    /> : <span>{value.reps}</span>}reps - {editable ? <EditableSpan
         trainingId={id}
         exerciseNumber={number}
         setNumber={index}
         isReps={false}
         value={value.weight.toString()}
         setValue={setReps}
-    />kg <button
-        onClick={() => removeSet(id, number, index)}>-</button></span>);
+    /> : <span>{value.weight}</span>}kg {editable ? <button
+        onClick={() => removeSet(id, number, index)}>-</button> : null}</span>);
 
     return (
         <div>
-            <h4>number - {number} name - {name}</h4>
+            <h4>number - {number} name - {editable ? <EditableSpan
+                trainingId={id}
+                exerciseNumber={number}
+                value={name}
+                setValue={setExerciseName}
+            /> : <span>{name}</span>}</h4>
             <div><b>sets:</b> {setsList}
-                <button onClick={() => addSet(id, number)}>+</button>
+                {editable ? <button onClick={() => addSet(id, number)}>+</button> : null}
             </div>
         </div>
     )
