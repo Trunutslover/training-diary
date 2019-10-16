@@ -1,34 +1,20 @@
 import React from 'react';
-import {
-    addExerciseAC,
-    addSetAC, removeExerciseAC,
-    removeSetAC,
-    setExerciseNameAC,
-    setRepsAC,
-    toggleIsDoneAC
-} from "../../redux/trainingsReducer";
-import Training from "../Training/Training";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {TrainingInterface} from "../../types";
+import {NavLink} from "react-router-dom";
 
-const Trainings = (props: any): React.ReactElement => {
-    const listOfTrainings = props.trainings.map((value: TrainingInterface) => <Training key={value.id} id={value.id}
-                                                                                        isDone={value.isDone}
-                                                                                        exercises={value.exercises}
-                                                                                        toggleIsDoneAC={props.toggleIsDoneAC}
-                                                                                        addSetAC={props.addSetAC}
-                                                                                        removeSetAC={props.removeSetAC}
-                                                                                        setRepsAC={props.setRepsAC}
-                                                                                        setExerciseNameAC={props.setExerciseNameAC}
-                                                                                        addExerciseAC={props.addExerciseAC}
-                                                                                        removeExerciseAC={props.removeExerciseAC}
-    />);
+interface Props {
+    trainings: TrainingInterface[]
+}
+
+const Trainings = ({trainings}: Props): React.ReactElement => {
+    const listOfTrainings = trainings.map((value: TrainingInterface) => <li key={value.id}><NavLink to={`/trainings/${value.id}`}>Training - {value.id}</NavLink></li>);
 
     return (
-        <div>
+        <nav>
             {listOfTrainings}
-        </div>
+        </nav>
     )
 };
 
@@ -39,13 +25,7 @@ const mapStateToProps = (state: any) => {
 };
 
 const mapDispatchToProps = {
-    toggleIsDoneAC,
-    addSetAC,
-    removeSetAC,
-    setRepsAC,
-    setExerciseNameAC,
-    addExerciseAC,
-    removeExerciseAC
+
 };
 
 export default compose(

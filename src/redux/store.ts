@@ -1,9 +1,11 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import trainingsReducer from "./trainingsReducer";
 import thunkMiddleware from 'redux-thunk';
+import trainingReducer from "./trainingReducer";
 
 const reducers = combineReducers({
-    trainings: trainingsReducer
+    trainings: trainingsReducer,
+    training: trainingReducer
 });
 
 // @ts-ignore

@@ -27,3 +27,7 @@ export interface TrainingInterface {
     isDone: boolean,
     exercises: ExerciseInterface[]
 }
+
+export interface TrainingsInterface {
+    id: number
+}

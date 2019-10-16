@@ -6,21 +6,20 @@ import cn from 'classnames/bind';
 const cx = cn.bind(classes);
 
 interface Props {
-    trainingId: number,
     exerciseNumber: number,
     setNumber?: number,
     isReps?: boolean,
     value: string,
-    setValue: (trainingId: number, exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface
+    setValue: (exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface
 }
 
-const EditableSpan = ({trainingId, exerciseNumber, value, setValue, setNumber, isReps}: Props): React.ReactElement => {
+const EditableSpan = ({exerciseNumber, value, setValue, setNumber, isReps}: Props): React.ReactElement => {
     const [editMode, setEditMode] = useState(false);
     const [inputValue, setInputValue] = useState(value);
 
     const onBlurHandler = () => {
         setEditMode(false);
-        setValue(trainingId, exerciseNumber, inputValue, setNumber, isReps);
+        setValue(exerciseNumber, inputValue, setNumber, isReps);
     };
 
     if(editMode) {
