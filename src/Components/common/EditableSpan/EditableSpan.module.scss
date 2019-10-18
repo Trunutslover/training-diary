@@ -8,6 +8,10 @@
   padding: 0 5px;
 
   background-color: $color-secondary-b-3;
+
+  &:hover {
+    background-color: $color-primary-3;
+  }
 }
 
 .input {

@@ -21,6 +21,11 @@ const App: React.FC = () => {
                 <Route path={`/trainings`}>
                     <Trainings />
                 </Route>
+                <Route path={`/`}>
+                    <div>
+                        Hi, this is simple training diary for the bodybuilders. Enjoy!;)
+                    </div>
+                </Route>
             </Switch>
         </div>
     );

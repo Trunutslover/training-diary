@@ -22,7 +22,6 @@ interface Props {
 const Training = ({id, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC, setRepsAC, setExerciseNameAC, addExerciseAC, removeExerciseAC}: Props): React.ReactElement => {
     const exercisesList = exercises.map(value => <Exercise
         key={value.number}
-        id={id}
         number={value.number}
         name={value.name}
         editable={!isDone}

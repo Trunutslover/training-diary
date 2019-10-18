@@ -7,7 +7,6 @@ import EditableSpan from "../common/EditableSpan/EditableSpan";
 const cx = cn.bind(classes);
 
 interface Props {
-    id: number,
     number: number,
     name: string,
     editable: boolean,
@@ -22,7 +21,7 @@ interface Props {
     removeExercise: (exerciseNumber: number) => actionInterface
 }
 
-const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps, setExerciseName, removeExercise}: Props): React.ReactElement => {
+const Exercise = ({number, name, editable, sets, addSet, removeSet, setReps, setExerciseName, removeExercise}: Props): React.ReactElement => {
     const setsList = sets.map((value, index) => <span key={index} className={cx({set: true})}>{editable ? <EditableSpan
         exerciseNumber={number}
         setNumber={index}
@@ -40,12 +39,12 @@ const Exercise = ({id, number, name, editable, sets, addSet, removeSet, setReps,
 
     return (
         <div className={cx({Exercise: true})}>
-            <h4 className={cx({title: true})}>number - {number} name - {editable ? <EditableSpan
+            <h4 className={cx({title: true})}>Number - {number}, name - {editable ? <EditableSpan
                 exerciseNumber={number}
                 value={name}
                 setValue={setExerciseName}
             /> : <span>{name}</span>}</h4>
-            <p className={cx({sets: true})}><b>sets:</b> {setsList}
+            <p className={cx({sets: true})}><b>Sets:</b> {setsList}
                 {editable ? <button className={cx({addButton: true})} onClick={() => addSet(number)}>+</button> : null}
             </p>
             {editable ? <button className={cx({removeButton: true})} onClick={() => removeExercise(number)}>Remove exercise</button> : null}

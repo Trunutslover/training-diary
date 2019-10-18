@@ -9,8 +9,8 @@ const Header = (): React.ReactElement => {
     return (
         <header className={cx({Header: true})}>
             <nav className={cx({menu: true})}>
-                <NavLink to={`/`} className={cx({link: true})} activeClassName={cx({linkActive: true})}>Home</NavLink>
-                <NavLink to={`/trainings`} className={cx({link: true})} activeClassName={cx({linkActive: true})}>Trainings</NavLink>
+                <NavLink to={`/`} className={cx({link: true})} activeClassName={cx({linkActive: true})} exact={true}>Home</NavLink>
+                <NavLink to={`/trainings`} className={cx({link: true})} activeClassName={cx({linkActive: true})} exact={true}>Trainings</NavLink>
             </nav>
         </header>
     )

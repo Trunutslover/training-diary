@@ -2,6 +2,8 @@
 @import "../../mixins";
 
 .Header {
+  display: flex;
+  align-items: center;
   min-height: 60px;
 
   background-color: $color-primary-0;
@@ -10,12 +12,40 @@
 .menu {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
+  margin: auto;
+  flex-grow: 1;
 }
 
 .link {
+  position: relative;
+  
+  text-decoration: none;
+  color: $color-primary-2;
+  font-weight: bold;
+  text-transform: uppercase;
 
+  &:hover {
+    color: $color-primary-4;
+  }
 }
 
 .linkActive {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: calc(100% - 2px);
+    left: 0;
 
+    background-color: $color-primary-2;
+  }
+
+  &:hover {
+    &::before {
+      background-color: $color-primary-4;
+    }
+  }
 }
