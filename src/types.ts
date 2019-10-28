@@ -5,7 +5,9 @@ export enum actionTypes {
     SET_REPS = 'SET_REPS',
     SET_EXERCISE_NAME = 'SET_EXERCISE_NAME',
     ADD_EXERCISE = 'ADD_EXERCISE',
-    REMOVE_EXERCISE = 'REMOVE_EXERCISE'
+    REMOVE_EXERCISE = 'REMOVE_EXERCISE',
+    SET_AUTH = 'SET_AUTH',
+    REMOVE_AUTH = 'REMOVE_AUTH'
 }
 
 export interface actionInterface {

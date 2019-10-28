@@ -3,11 +3,13 @@ import trainingsReducer from "./trainingsReducer";
 import thunkMiddleware from 'redux-thunk';
 import trainingReducer from "./trainingReducer";
 import profileReducer from "./profileReducer";
+import authReducer from "./authReducer";
 
 const reducers = combineReducers({
     trainings: trainingsReducer,
     training: trainingReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    auth: authReducer
 });
 
 // @ts-ignore
