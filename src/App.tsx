@@ -6,6 +6,7 @@ import Trainings from "./Components/Trainings/Trainings";
 import Header from "./Components/Header/Header";
 import {Route, Switch} from "react-router-dom";
 import TrainingContainer from "./Components/Training/TrainingContainer";
+import Profile from "./Components/Profile/Profile";
 
 const cx = cn.bind(classes);
 
@@ -20,6 +21,9 @@ const App: React.FC = () => {
                 </Route>
                 <Route path={`/trainings`}>
                     <Trainings />
+                </Route>
+                <Route path={`/profile`}>
+                    <Profile />
                 </Route>
                 <Route path={`/`}>
                     <div>

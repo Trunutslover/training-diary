@@ -11,6 +11,7 @@ const Header = (): React.ReactElement => {
             <nav className={cx({menu: true})}>
                 <NavLink to={`/`} className={cx({link: true})} activeClassName={cx({linkActive: true})} exact={true}>Home</NavLink>
                 <NavLink to={`/trainings`} className={cx({link: true})} activeClassName={cx({linkActive: true})} exact={true}>Trainings</NavLink>
+                <NavLink to={`/profile`} className={cx({link: true})} activeClassName={cx({linkActive: true})} exact={true}>Profile</NavLink>
             </nav>
         </header>
     )

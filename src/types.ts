@@ -31,3 +31,10 @@ export interface TrainingInterface {
 export interface TrainingsInterface {
     id: number
 }
+
+export interface ProfileInterface {
+    name: string,
+    avatar: string | undefined,
+    age: number,
+    sex: boolean
+}
