@@ -44,7 +44,7 @@ const Exercise = ({number, name, editable, sets, addSet, removeSet, setReps, set
                 value={name}
                 setValue={setExerciseName}
             /> : <span>{name}</span>}</h4>
-            <p className={cx({sets: true})}><b>Sets:</b> {setsList}
+            <p className={cx({sets: true})}><b className={cx({setsTitle: true})}>Sets:</b>{setsList}
                 {editable ? <button className={cx({addButton: true})} onClick={() => addSet(number)}>+</button> : null}
             </p>
             {editable ? <button className={cx({removeButton: true})} onClick={() => removeExercise(number)}>Remove exercise</button> : null}

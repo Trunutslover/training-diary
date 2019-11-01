@@ -21,12 +21,12 @@
   position: relative;
   
   text-decoration: none;
-  color: $color-primary-2;
+  color: white;
   font-weight: bold;
   text-transform: uppercase;
 
   &:hover {
-    color: $color-primary-4;
+    color: black;
   }
 }
 
@@ -40,12 +40,12 @@
     top: calc(100% - 2px);
     left: 0;
 
-    background-color: $color-primary-2;
+    background-color: $color-secondary-0;
   }
 
   &:hover {
     &::before {
-      background-color: $color-primary-4;
+      background-color: $color-secondary-d;
     }
   }
 }

@@ -5,13 +5,13 @@
   padding: 10px;
   box-sizing: border-box;
 
-  background-color: $color-primary-4;
+  background-color: white;
 }
 
 .title {
   margin: 0;
 
-  color: $color-secondary-a-1;
+  color: black;
   text-transform: uppercase;
   font-size: 24px;
   line-height: 24px;
@@ -28,15 +28,19 @@
 
 .link {
   text-decoration: none;
-  color: $color-secondary-a-0;
+  color: $color-secondary-0;
   font-size: 18px;
   font-weight: bold;
 
   &:hover {
-    color: $color-secondary-a-1;
+    color: $color-secondary-d;
+  }
+
+  &:focus {
+    color: $color-secondary-d;
   }
 
   &:active {
-    color: $color-secondary-a-2;
+    color: $color-secondary-l;
   }
 }

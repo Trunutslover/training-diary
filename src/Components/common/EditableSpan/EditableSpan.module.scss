@@ -1,23 +1,28 @@
 @import "../../../constants";
 
 .EditableSpan {
-
+  box-sizing: border-box;
 }
 
 .span {
   padding: 0 5px;
+  box-sizing: border-box;
 
-  background-color: $color-secondary-b-3;
+  background-color: $color-secondary-l;
 
   &:hover {
-    background-color: $color-primary-3;
+    background-color: $color-secondary-d;
   }
 }
 
 .input {
+  padding: 2px 0 2px 5px;
 
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid $color-secondary-d;
 }
 
 .number {
-  width: 40px;
+  width: 45px;
 }

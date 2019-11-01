@@ -9,7 +9,7 @@
   padding: 10px;
   box-sizing: border-box;
 
-  border: 1px solid $color-secondary-b-3;
+  border: 1px solid black;
 }
 
 .set {
@@ -17,7 +17,12 @@
   padding: 5px;
   box-sizing: border-box;
 
-  border: 1px dashed $color-secondary-b-3;
+  background-color: $color-background-l;
+  border-radius: 4px;
+}
+
+.setsTitle {
+  margin-right: 10px;
 }
 
 .removeButton {
@@ -36,5 +41,8 @@
 }
 
 .sets {
+  display: flex;
+  align-items: center;
   margin: 0;
+  box-sizing: border-box;
 }

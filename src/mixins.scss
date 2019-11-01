@@ -4,24 +4,29 @@
   padding: 5px 10px;
   box-sizing: border-box;
 
-  color: $color-secondary-a-2;
-  border: 1px solid $color-secondary-a-2;
-  background-color: $color-secondary-a-4;
-  border-radius: 3px;
+  color: black;
+  border: 2px solid $color-primary-d;
+  background-color: $color-background-l;
+  border-radius: 4px;
   font-weight: bold;
   text-transform: uppercase;
   font-family: inherit;
 
   &:hover {
     cursor: pointer;
-    background-color: $color-secondary-a-3;
+    background-color: $color-background-0;
     box-shadow: 0 0 1px 0;
   }
 
   &:focus {
-    background-color: $color-secondary-a-3;
-    outline: 1px solid $color-secondary-a-1;
-    -moz-outline-radius: 3px;
+    background-color: $color-background-0;
+    outline: 1px solid black;
+    -moz-outline-radius: 4px;
+  }
+
+  &:active {
+    color: white;
+    background-color: $color-background-d;
   }
 }
 
@@ -29,23 +34,29 @@
   padding: 5px 10px;
   box-sizing: border-box;
 
-  color: $color-secondary-b-2;
-  border: 1px solid $color-secondary-b-2;
-  background-color: $color-secondary-b-4;
-  border-radius: 3px;
+  color: black;
+  border: 2px solid $color-secondary-d;
+  background-color: $color-background-l;
+  border-radius: 4px;
   font-weight: bold;
   text-transform: uppercase;
   font-family: inherit;
 
   &:hover {
     cursor: pointer;
-    background-color: $color-secondary-b-3;
+    background-color: $color-background-0;
     box-shadow: 0 0 1px 0;
   }
 
   &:focus {
-    background-color: $color-secondary-b-3;
-    outline: 1px solid $color-secondary-b-1;
-    -moz-outline-radius: 3px;
+    color: white;
+    background-color: $color-background-0;
+    outline: 1px solid $color-secondary-l;
+    -moz-outline-radius: 4px;
+  }
+
+  &:active {
+    color: white;
+    background-color: $color-background-d;
   }
 }
