@@ -5,6 +5,7 @@ import {actionInterface, actionTypes, TrainingInterface} from "../types";
 const initialState: TrainingInterface = {
     id: 1,
     isDone: false,
+    timestamp: 1572690570382,
     exercises: [
         {
             number: 1,
@@ -124,6 +125,13 @@ const trainingReducer = (state: TrainingInterface = initialState, action: action
             }
         }
 
+        case actionTypes.SET_TIMESTAMP: {
+            return {
+                ...state,
+                timestamp: action.payload.timestamp
+            }
+        }
+
         default:
             return state;
     }
@@ -150,3 +158,4 @@ export const setExerciseNameAC = (exerciseNumber: number, value: string) => ({
 });
 export const addExerciseAC = () => ({type: actionTypes.ADD_EXERCISE});
 export const removeExerciseAC = (exerciseNumber: number) => ({type: actionTypes.REMOVE_EXERCISE, payload: {exerciseNumber}});
+export const setTimestampAC = (timestamp: number): actionInterface => ({type: actionTypes.SET_TIMESTAMP, payload: {timestamp}});

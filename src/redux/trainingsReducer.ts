@@ -2,10 +2,12 @@ import {actionInterface, actionTypes, TrainingsInterface} from "../types";
 
 const initialState: TrainingsInterface[] = [
     {
-        id: 1
+        id: 1,
+        timestamp: 1572630920138
     },
     {
-        id: 2
+        id: 2,
+        timestamp: 1572640920138
     }
 ];
 

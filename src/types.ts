@@ -7,7 +7,8 @@ export enum actionTypes {
     ADD_EXERCISE = 'ADD_EXERCISE',
     REMOVE_EXERCISE = 'REMOVE_EXERCISE',
     SET_AUTH = 'SET_AUTH',
-    REMOVE_AUTH = 'REMOVE_AUTH'
+    REMOVE_AUTH = 'REMOVE_AUTH',
+    SET_TIMESTAMP = 'SET_TIMESTAMP'
 }
 
 export interface actionInterface {
@@ -26,12 +27,14 @@ export interface ExerciseInterface {
 
 export interface TrainingInterface {
     id: number,
+    timestamp: number,
     isDone: boolean,
     exercises: ExerciseInterface[]
 }
 
 export interface TrainingsInterface {
-    id: number
+    id: number,
+    timestamp: number
 }
 
 export interface ProfileInterface {

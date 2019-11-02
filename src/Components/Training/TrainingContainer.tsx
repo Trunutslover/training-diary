@@ -4,7 +4,7 @@ import {
     addSetAC, removeExerciseAC,
     removeSetAC,
     setExerciseNameAC,
-    setRepsAC,
+    setRepsAC, setTimestampAC,
     toggleIsDoneAC
 } from "../../redux/trainingReducer";
 import {compose} from "redux";
@@ -21,7 +21,8 @@ interface Props {
     setRepsAC: (exerciseNumber: number, value: string, setNumber?: number, isReps?: boolean) => actionInterface,
     setExerciseNameAC: (exerciseNumber: number, value: string) => actionInterface,
     addExerciseAC: () => actionInterface,
-    removeExerciseAC: (exerciseNumber: number) => actionInterface
+    removeExerciseAC: (exerciseNumber: number) => actionInterface,
+    setTimestampAC: (timestamp: number) => actionInterface
 }
 
 const TrainingContainer = (props: Props): React.ReactElement => {
@@ -31,6 +32,7 @@ const TrainingContainer = (props: Props): React.ReactElement => {
         return (
             <Training
                 id={props.training.id}
+                timestamp={props.training.timestamp}
                 isDone={props.training.isDone}
                 exercises={props.training.exercises}
                 toggleIsDoneAC={props.toggleIsDoneAC}
@@ -40,6 +42,7 @@ const TrainingContainer = (props: Props): React.ReactElement => {
                 setExerciseNameAC={props.setExerciseNameAC}
                 addExerciseAC={props.addExerciseAC}
                 removeExerciseAC={props.removeExerciseAC}
+                setTimestampAC={props.setTimestampAC}
             />
         )
     } else {
@@ -61,7 +64,8 @@ const mapDispatchToProps = {
     setRepsAC,
     setExerciseNameAC,
     addExerciseAC,
-    removeExerciseAC
+    removeExerciseAC,
+    setTimestampAC
 };
 
 export default compose(

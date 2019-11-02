@@ -1,0 +1,26 @@
+@import "../../../constants";
+
+.span {
+  padding: 0 5px;
+  box-sizing: border-box;
+
+  background-color: $color-secondary-l;
+
+  &:hover {
+    background-color: $color-secondary-d;
+  }
+}
+
+.input {
+  width: 45px;
+  padding: 0 0 0 5px;
+  box-sizing: border-box;
+
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid $color-secondary-d;
+}
+
+.fullYear {
+  width: 60px;
+}
