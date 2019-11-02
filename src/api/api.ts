@@ -26,6 +26,11 @@ export const auth = {
     }
 };
 
+export const getTrainings = async () => {
+    const response = await instance.get(`trainings`);
+    return response.data;
+};
+
 export const getTraining = async (id: number) => {
     const response = await instance.get(`training/${id}`);
     return response.data;
