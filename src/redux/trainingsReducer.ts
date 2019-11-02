@@ -1,5 +1,5 @@
-import {actionInterface, actionTypes, TrainingsInterface} from "../types";
-import {getTrainings} from "../api/api";
+import {actionInterface, actionTypes, TrainingInterface, TrainingsInterface} from "../types";
+import {getTrainings, postTraining} from "../api/api";
 
 const initialState: TrainingsInterface[] = [
 
@@ -25,4 +25,11 @@ export const setTrainingsAC = (trainings: TrainingsInterface[]): actionInterface
 export const getTrainingsTC = () => async (dispatch: any) => {
     const trainings = await getTrainings();
     dispatch(setTrainingsAC(trainings));
+};
+
+export const postTrainingTC = (training: TrainingInterface) => async (dispatch: any) => {
+    const response = await postTraining(training);
+    if(response.code === 0) {
+        dispatch(getTrainingsTC());
+    }
 };

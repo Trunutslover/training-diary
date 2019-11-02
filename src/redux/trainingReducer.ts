@@ -170,6 +170,3 @@ export const getTrainingTC = (id: number) => async (dispatch: any) => {
     console.log(data);
     dispatch(setTrainingAC(data));
 };
-export const postTrainingTC = (training: TrainingInterface) => (dispatch: any) => {
-    postTraining(training);
-};

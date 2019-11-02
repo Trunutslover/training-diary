@@ -1,23 +1,33 @@
 import React, {useEffect} from 'react';
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {TrainingsInterface} from "../../types";
+import {TrainingInterface, TrainingsInterface} from "../../types";
 import {NavLink} from "react-router-dom";
 import classes from './Trainings.module.scss';
 import cn from 'classnames/bind';
-import {getTrainingsTC} from "../../redux/trainingsReducer";
+import {getTrainingsTC, postTrainingTC} from "../../redux/trainingsReducer";
 
 const cx = cn.bind(classes);
 
 interface Props {
     trainings: TrainingsInterface[],
-    getTrainingsTC: () => {}
+    getTrainingsTC: () => {},
+    postTrainingTC: (training: TrainingInterface) => {}
 }
 
-const Trainings = ({trainings, getTrainingsTC}: Props): React.ReactElement => {
+const Trainings = ({trainings, getTrainingsTC, postTrainingTC}: Props): React.ReactElement => {
     useEffect(() => {
         getTrainingsTC();
     }, []);
+
+    const onAddTrainingClick = () => {
+        postTrainingTC({
+            id: 0,
+            timestamp: new Date().getTime(),
+            isDone: false,
+            exercises: []
+        });
+    };
 
     const listOfTrainings = trainings.map((value: TrainingsInterface) => {
         const date = new Date(value.timestamp);
@@ -33,6 +43,7 @@ const Trainings = ({trainings, getTrainingsTC}: Props): React.ReactElement => {
             <nav className={cx({menu: true})}>
                 {listOfTrainings}
             </nav>
+            <button className={cx({addTrainingButton: true})} onClick={onAddTrainingClick}>Add new training</button>
         </main>
     )
 };
@@ -44,7 +55,8 @@ const mapStateToProps = (state: any) => {
 };
 
 const mapDispatchToProps = {
-    getTrainingsTC
+    getTrainingsTC,
+    postTrainingTC
 };
 
 export default compose(
