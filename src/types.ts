@@ -8,7 +8,8 @@ export enum actionTypes {
     REMOVE_EXERCISE = 'REMOVE_EXERCISE',
     SET_AUTH = 'SET_AUTH',
     REMOVE_AUTH = 'REMOVE_AUTH',
-    SET_TIMESTAMP = 'SET_TIMESTAMP'
+    SET_TIMESTAMP = 'SET_TIMESTAMP',
+    SET_TRAINING = 'SET_TRAINING'
 }
 
 export interface actionInterface {

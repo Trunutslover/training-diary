@@ -1,8 +1,9 @@
 import axios from 'axios';
+import {TrainingInterface} from "../types";
 
 const instance = axios.create({
     withCredentials: true,
-    baseURL: ``,
+    baseURL: `http://127.0.0.1/api/`,
     headers: {
 
     }
@@ -23,4 +24,14 @@ export const auth = {
         const response = await instance.delete(`auth/login`);
         return response.data;
     }
+};
+
+export const getTraining = async (id: number) => {
+    const response = await instance.get(`training/${id}`);
+    return response.data;
+};
+
+export const postTraining = async (training: TrainingInterface) => {
+    const response = await instance.post(`training`, training);
+    return response.data;
 };

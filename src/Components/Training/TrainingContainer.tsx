@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     addExerciseAC,
-    addSetAC, removeExerciseAC,
+    addSetAC, getTrainingTC, removeExerciseAC,
     removeSetAC,
     setExerciseNameAC,
     setRepsAC, setTimestampAC,
@@ -22,11 +22,16 @@ interface Props {
     setExerciseNameAC: (exerciseNumber: number, value: string) => actionInterface,
     addExerciseAC: () => actionInterface,
     removeExerciseAC: (exerciseNumber: number) => actionInterface,
-    setTimestampAC: (timestamp: number) => actionInterface
+    setTimestampAC: (timestamp: number) => actionInterface,
+    getTrainingTC: (id: number) => {}
 }
 
 const TrainingContainer = (props: Props): React.ReactElement => {
     const match: any = useRouteMatch('/trainings/:trainingId');
+    useEffect(() => {
+        console.log(`rerender`);
+        props.getTrainingTC(match.params.trainingId);
+    }, [props.training.id]);
 
     if(parseInt(match.params.trainingId) === props.training.id) {
         return (
@@ -65,7 +70,8 @@ const mapDispatchToProps = {
     setExerciseNameAC,
     addExerciseAC,
     removeExerciseAC,
-    setTimestampAC
+    setTimestampAC,
+    getTrainingTC
 };
 
 export default compose(

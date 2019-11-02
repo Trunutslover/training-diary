@@ -53,6 +53,7 @@ const Training = ({id, timestamp, isDone, exercises, toggleIsDoneAC, addSetAC, r
             {isDone ? null : <div><button className={cx({buttonDone: true})} onClick={() => addExerciseAC()}>Add exercise</button></div>}
             {isDone ? <button className={cx({buttonDone: true})} onClick={() => toggleIsDoneAC(id)}>Training is not done</button> :
                 <button className={cx({button: true})} onClick={() => toggleIsDoneAC(id)}>Training is done</button>}
+            <button className={cx({button: true})}>Save changes</button>
         </section>
     )
 };

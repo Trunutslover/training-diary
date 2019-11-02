@@ -1,25 +1,29 @@
 //This reducer work with one Training displayed on '/trainings/trainingId' address
 
 import {actionInterface, actionTypes, TrainingInterface} from "../types";
+import {getTraining, postTraining} from "../api/api";
 
 const initialState: TrainingInterface = {
-    id: 1,
+    id: 0,
     isDone: false,
-    timestamp: 1572690570382,
+    timestamp: 0,
     exercises: [
         {
             number: 1,
-            name: `squats`,
-            sets: [
-                {reps: 8, weight: 40},
-                {reps: 10, weight: 50}
-            ]
+            name: ``,
+            sets: []
         }
     ]
 };
 
 const trainingReducer = (state: TrainingInterface = initialState, action: actionInterface): TrainingInterface => {
     switch (action.type) {
+        case actionTypes.SET_TRAINING: {
+            return {
+                ...action.payload.training
+            }
+        }
+
         case actionTypes.TOGGLE_IS_DONE: {
             return {
                 ...state,
@@ -159,3 +163,13 @@ export const setExerciseNameAC = (exerciseNumber: number, value: string) => ({
 export const addExerciseAC = () => ({type: actionTypes.ADD_EXERCISE});
 export const removeExerciseAC = (exerciseNumber: number) => ({type: actionTypes.REMOVE_EXERCISE, payload: {exerciseNumber}});
 export const setTimestampAC = (timestamp: number): actionInterface => ({type: actionTypes.SET_TIMESTAMP, payload: {timestamp}});
+export const setTrainingAC = (training: TrainingInterface): actionInterface => ({type: actionTypes.SET_TRAINING, payload: {training}});
+
+export const getTrainingTC = (id: number) => async (dispatch: any) => {
+    const data = await getTraining(id);
+    console.log(data);
+    dispatch(setTrainingAC(data));
+};
+export const postTrainingTC = (training: TrainingInterface) => (dispatch: any) => {
+    postTraining(training);
+};
