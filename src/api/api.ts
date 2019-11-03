@@ -40,3 +40,10 @@ export const postTraining = async (training: TrainingInterface) => {
     const response = await instance.post(`training`, training);
     return response.data;
 };
+
+export const delTraining = async (id: number) => {
+    const response = await instance.delete(`training/${id}`, {headers: {options: {
+                "Cache-Control": "no-cache"
+            }}});
+    return response.data;
+};

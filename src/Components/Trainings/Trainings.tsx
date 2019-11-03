@@ -5,17 +5,18 @@ import {TrainingInterface, TrainingsInterface} from "../../types";
 import {NavLink} from "react-router-dom";
 import classes from './Trainings.module.scss';
 import cn from 'classnames/bind';
-import {getTrainingsTC, postTrainingTC} from "../../redux/trainingsReducer";
+import {getTrainingsTC, postTrainingTC, delTrainingTC} from "../../redux/trainingsReducer";
 
 const cx = cn.bind(classes);
 
 interface Props {
     trainings: TrainingsInterface[],
     getTrainingsTC: () => {},
-    postTrainingTC: (training: TrainingInterface) => {}
+    postTrainingTC: (training: TrainingInterface) => {},
+    delTrainingTC: (id: number) => {}
 }
 
-const Trainings = ({trainings, getTrainingsTC, postTrainingTC}: Props): React.ReactElement => {
+const Trainings = ({trainings, getTrainingsTC, postTrainingTC, delTrainingTC}: Props): React.ReactElement => {
     useEffect(() => {
         getTrainingsTC();
     }, []);
@@ -34,6 +35,7 @@ const Trainings = ({trainings, getTrainingsTC, postTrainingTC}: Props): React.Re
 
         return <li key={value.id} className={cx({item:true})}>
             <NavLink to={`/trainings/${value.id}`} className={cx({link: true})}>Training {value.id} from {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}</NavLink>
+            <button className={cx({delTrainingButton: true})} onClick={() => delTrainingTC(value.id)}>Delete training</button>
         </li>
     });
 
@@ -56,7 +58,8 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = {
     getTrainingsTC,
-    postTrainingTC
+    postTrainingTC,
+    delTrainingTC
 };
 
 export default compose(
