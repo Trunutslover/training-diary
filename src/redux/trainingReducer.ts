@@ -1,7 +1,7 @@
 //This reducer work with one Training displayed on '/trainings/trainingId' address
 
 import {actionInterface, actionTypes, TrainingInterface} from "../types";
-import {getTraining, postTraining} from "../api/api";
+import {getTraining, postTraining, putTraining} from "../api/api";
 
 const initialState: TrainingInterface = {
     id: 0,
@@ -167,6 +167,9 @@ export const setTrainingAC = (training: TrainingInterface): actionInterface => (
 
 export const getTrainingTC = (id: number) => async (dispatch: any) => {
     const data = await getTraining(id);
-    console.log(data);
     dispatch(setTrainingAC(data));
+};
+
+export const putTrainingTC = (training: TrainingInterface) => async (dispatch: any) => {
+    await putTraining(training);
 };

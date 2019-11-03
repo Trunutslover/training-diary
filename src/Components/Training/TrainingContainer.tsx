@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {
     addExerciseAC,
-    addSetAC, getTrainingTC, removeExerciseAC,
+    addSetAC, getTrainingTC, putTrainingTC, removeExerciseAC,
     removeSetAC,
     setExerciseNameAC,
     setRepsAC, setTimestampAC,
@@ -23,7 +23,8 @@ interface Props {
     addExerciseAC: () => actionInterface,
     removeExerciseAC: (exerciseNumber: number) => actionInterface,
     setTimestampAC: (timestamp: number) => actionInterface,
-    getTrainingTC: (id: number) => {}
+    getTrainingTC: (id: number) => {},
+    putTrainingTC: (training: TrainingInterface) => {}
 }
 
 const TrainingContainer = (props: Props): React.ReactElement => {
@@ -48,6 +49,7 @@ const TrainingContainer = (props: Props): React.ReactElement => {
                 addExerciseAC={props.addExerciseAC}
                 removeExerciseAC={props.removeExerciseAC}
                 setTimestampAC={props.setTimestampAC}
+                putTrainingTC={props.putTrainingTC}
             />
         )
     } else {
@@ -71,7 +73,8 @@ const mapDispatchToProps = {
     addExerciseAC,
     removeExerciseAC,
     setTimestampAC,
-    getTrainingTC
+    getTrainingTC,
+    putTrainingTC
 };
 
 export default compose(

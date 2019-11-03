@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {actionInterface, ExerciseInterface} from "../../types";
+import {actionInterface, ExerciseInterface, TrainingInterface} from "../../types";
 import Exercise from "../Exercise/Exercise";
 import classes from './Training.module.scss';
 import cn from 'classnames/bind';
@@ -19,10 +19,11 @@ interface Props {
     setExerciseNameAC: (exerciseNumber: number, value: string) => actionInterface,
     addExerciseAC: () => actionInterface,
     removeExerciseAC: (exerciseNumber: number) => actionInterface,
-    setTimestampAC: (timestamp: number) => actionInterface
+    setTimestampAC: (timestamp: number) => actionInterface,
+    putTrainingTC: (training: TrainingInterface) => {}
 }
 
-const Training = ({id, timestamp, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC, setRepsAC, setExerciseNameAC, addExerciseAC, removeExerciseAC, setTimestampAC}: Props): React.ReactElement => {
+const Training = ({id, timestamp, isDone, exercises, toggleIsDoneAC, addSetAC, removeSetAC, setRepsAC, setExerciseNameAC, addExerciseAC, removeExerciseAC, setTimestampAC, putTrainingTC}: Props): React.ReactElement => {
     const exercisesList = exercises.map(value => <Exercise
         key={value.number}
         number={value.number}
@@ -53,7 +54,7 @@ const Training = ({id, timestamp, isDone, exercises, toggleIsDoneAC, addSetAC, r
             {isDone ? null : <div><button className={cx({buttonDone: true})} onClick={() => addExerciseAC()}>Add exercise</button></div>}
             {isDone ? <button className={cx({buttonDone: true})} onClick={() => toggleIsDoneAC(id)}>Training is not done</button> :
                 <button className={cx({button: true})} onClick={() => toggleIsDoneAC(id)}>Training is done</button>}
-            <button className={cx({button: true})}>Save changes</button>
+            <button className={cx({button: true})} onClick={() => putTrainingTC({id, isDone, timestamp, exercises})}>Save changes</button>
         </section>
     )
 };

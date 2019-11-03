@@ -47,3 +47,8 @@ export const delTraining = async (id: number) => {
             }}});
     return response.data;
 };
+
+export const putTraining = async (training: TrainingInterface) => {
+    const response = await instance.put(`training`, training);
+    return response.data;
+};
