@@ -23,7 +23,12 @@
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 
+  border-bottom: 1px solid $color-secondary-d;
 }
 
 .link {
@@ -43,4 +48,12 @@
   &:active {
     color: $color-secondary-l;
   }
+}
+
+.addTrainingButton {
+  @include greenButton;
+}
+
+.delTrainingButton {
+  @include redButton;
 }
